@@ -12,7 +12,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private UIPassive uiPassive;
     [SerializeField] private UiPayRentScreen uiPayRentSceen;
     [SerializeField] private UiGameOverScreen uiGameOverScreen;
-    [SerializeField] private UiCoinPanel uiCoinPanel;
+   
     [SerializeField] private UiSettingPanel uiSettingPanel;
     public Canvas canvas;
    
@@ -28,7 +28,7 @@ public class UiManager : MonoBehaviour
     public UiGameOverScreen GetGameoverScreen { get; private set; }
    
     public UiPayRentScreen GetUiPayRentScreen { get; private set; }
-    public UiCoinPanel GetUiCoinPanelScreen { get; private set; }
+   
 
 
     private void Awake() {
@@ -44,7 +44,7 @@ public class UiManager : MonoBehaviour
         GetGameoverScreen = uiGameOverScreen;
         GetUIPassiveScreen = uiPassive;
         GetUiPayRentScreen = uiPayRentSceen;
-        GetUiCoinPanelScreen = uiCoinPanel;
+      
         GetUiSettingScreen = uiSettingPanel;
         GameManager.instance.StartGame();
     }

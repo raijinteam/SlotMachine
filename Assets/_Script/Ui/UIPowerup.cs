@@ -42,7 +42,7 @@ public class UIPowerup : MonoBehaviour {
         else {
            
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
-            UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+            UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
             for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
                 if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {
                     crossChain.IsSwap = true;
@@ -119,7 +119,7 @@ public class UIPowerup : MonoBehaviour {
         }
         else {
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
-            UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+            UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
             for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
                      if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {
                     crossChain.IsSwap = true;

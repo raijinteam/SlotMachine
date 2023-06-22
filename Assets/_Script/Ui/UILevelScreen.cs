@@ -28,7 +28,7 @@ public class UILevelScreen : MonoBehaviour
         if (LevelManager.instance.CurrentLevelNo == 1) {
             this.gameObject.SetActive(false);
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
-            UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+            UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
         }
         else {
             this.gameObject.SetActive(false);

@@ -81,7 +81,7 @@ public class UIPassive : MonoBehaviour
         }
         this.gameObject.SetActive(false);
         UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
-        UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+        UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
             if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {
                 crossChain.IsSwap = true;
@@ -107,7 +107,7 @@ public class UIPassive : MonoBehaviour
         AudioManager.instance.Play_BtnClikSfx();
         this.gameObject.SetActive(false);
         UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
-        UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+        UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
         GridManager.instance.SkipTimeObjectSetup();
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
             if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {

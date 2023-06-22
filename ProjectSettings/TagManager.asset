@@ -50,3 +50,6 @@ TagManager:
   - name: AfterCoin
     uniqueID: 3232830015
     locked: 0
+  - name: PowerUp
+    uniqueID: 1431934097
+    locked: 0

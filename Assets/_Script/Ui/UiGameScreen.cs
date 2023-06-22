@@ -8,8 +8,10 @@ using DG.Tweening;
 
 public class UiGameScreen : MonoBehaviour
 {
-    public Button btn_Spin;
+    [SerializeField]private Button btn_Spin;
     [SerializeField] private float flt_DelayOfTweSpin;
+    [SerializeField] private Sprite img_Unselect;
+    [SerializeField] private Sprite img_Select;
     
 
    
@@ -22,8 +24,14 @@ public class UiGameScreen : MonoBehaviour
 
         AudioManager.instance.Play_BtnClikSfx();
         GridManager.instance.SpinClick();
-        btn_Spin.gameObject.SetActive(false);
+        btn_Spin.interactable = false;
+        btn_Spin.image.sprite = img_Unselect;
       
+    }
+
+    public void SelectBtnActive() {
+        btn_Spin.interactable = true;
+        btn_Spin.image.sprite = img_Select;
     }
 
    

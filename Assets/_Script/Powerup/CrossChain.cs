@@ -32,8 +32,6 @@ public class CrossChain : MonoBehaviour
     private IEnumerator UICoinPanel(GameObject Coin ) {
       
         yield return new WaitForSeconds(0.5f);
-        UiManager.instance.GetUiCoinPanelScreen.gameObject.SetActive(true);
-        
-        UiManager.instance.GetUiCoinPanelScreen.SetUiPanel(Coin,this.gameObject);
+       
     }
 }

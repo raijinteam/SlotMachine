@@ -19,20 +19,20 @@ public class TargetSetup : MonoBehaviour
     //</Summary>
 
     private void Start() {
-        flt_Y_DownPostion = transform.position.y;
+        flt_Y_DownPostion = transform.localPosition.y;
 
         txt_Mesh.gameObject.SetActive(false);
     }
     public void TargetUpAnimation(float time) {
 
-        transform.DOMoveY(flt_Y_TopPostion, time);
+        transform.DOLocalMoveY(flt_Y_TopPostion, time);
         
 
     }
     public void TargetDownAmiantion(float time) {
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(transform.DOMoveY(flt_Y_DownPostion, time)).AppendInterval(time).AppendCallback(CheckingGameOver);
+        seq.Append(transform.DOLocalMoveY(flt_Y_DownPostion, time)).AppendInterval(time).AppendCallback(CheckingGameOver);
        
         
     }

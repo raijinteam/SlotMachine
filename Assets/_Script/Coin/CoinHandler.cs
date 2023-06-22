@@ -107,7 +107,7 @@ public class CoinHandler : MonoBehaviour
 
     private IEnumerator DealaySpinBtnClick() {
         yield return new WaitForSeconds(coinAnimationTime + DealyOfCoinDownAnimation + afterSpawnDelay);
-        UiManager.instance.GetUiGamePlayScreen.btn_Spin.gameObject.SetActive(true);
+        UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
       
     }
 }
