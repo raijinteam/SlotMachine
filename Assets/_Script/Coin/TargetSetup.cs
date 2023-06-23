@@ -7,9 +7,12 @@ public class TargetSetup : MonoBehaviour
 {
     [SerializeField] private TextMesh txt_Mesh;
     private float flt_Y_DownPostion;
-    private float flt_Y_TopPostion = 2.2f;
+    private float flt_Y_TopPostion = -2.2f;
     private int Coin;
-    
+
+    //[SerializeField] private Canvas canvas;
+    [SerializeField] private RectTransform rectTransform;
+
     //<Summary>
     //In this Script Set up All Coin Animation
     // Target Up Animation
@@ -19,6 +22,16 @@ public class TargetSetup : MonoBehaviour
     //</Summary>
 
     private void Start() {
+
+
+     
+        Camera camera = Camera.main;  // Use the camera that can see the canvas
+
+        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
+        Vector3 worldPosition = camera.ScreenToWorldPoint(screenPosition);
+
+        transform.position = new Vector3(worldPosition.x,worldPosition.y,0);
+
         flt_Y_DownPostion = transform.localPosition.y;
 
         txt_Mesh.gameObject.SetActive(false);

@@ -24,6 +24,8 @@ public class DeathCross : MonoBehaviour {
    
 
     public void Instance_SetSynergy() {
+
+        AudioManager.instance.Play_SynergySfx();
         count++;
         if (count> CoinZeroCount) {
             count = 0;

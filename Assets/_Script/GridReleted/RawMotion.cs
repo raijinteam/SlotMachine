@@ -15,6 +15,7 @@ public class RawMotion : MonoBehaviour
     [SerializeField] private int turn;
     [SerializeField] private int maxTurn;
     [SerializeField] private float flt_StopAnimationTime;
+    [SerializeField] private float flt_StartAnimationTime;
    
 
 
@@ -35,8 +36,8 @@ public class RawMotion : MonoBehaviour
         float postion = startPostion + 0.5f;
       
         Debug.Log("Name" + transform.name + "StartPostion" + startPostion + "Postion" + postion);
-        SEQ.Append(transform.DOLocalMoveY(postion, 0.2f).SetEase(Ease.Linear)).Append(
-            transform.DOLocalMoveY(startPostion, 0.2f).SetEase(Ease.Linear)).AppendCallback(StartAnimation);
+        SEQ.Append(transform.DOLocalMoveY(postion, flt_StartAnimationTime).SetEase(Ease.Linear)).Append(
+            transform.DOLocalMoveY(startPostion, flt_StartAnimationTime).SetEase(Ease.Linear)).AppendCallback(StartAnimation);
        
 
     }

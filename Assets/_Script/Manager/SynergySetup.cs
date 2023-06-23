@@ -86,7 +86,9 @@ public class SynergySetup : MonoBehaviour
             //escrew = 19 , Nosynergy
 
             else if (list_Gamobject[i].mySymbolIndex == 20) {
-               list_Actions.Add(list_Gamobject[i].GetComponent<FomoBuyer>().Instance_SetSynergy);
+
+               
+                list_Actions.Add(list_Gamobject[i].GetComponent<FomoBuyer>().Instance_SetSynergy);
 
             }
             // fur  = 21 ,nosynergy

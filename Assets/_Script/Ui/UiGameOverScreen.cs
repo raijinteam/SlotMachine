@@ -9,7 +9,7 @@ public class UiGameOverScreen : MonoBehaviour
 {
    
 
-    private void OnclickOnReloadBtnClick() {
+    public void OnclickOnReloadBtnClick() {
         AudioManager.instance.Play_BtnClikSfx();
         SceneManager.LoadScene(0);
     }

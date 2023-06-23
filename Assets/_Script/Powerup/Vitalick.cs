@@ -44,6 +44,8 @@ public class Vitalick : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
+        AudioManager.instance.Play_SynergySfx();
+
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
 

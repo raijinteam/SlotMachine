@@ -42,6 +42,8 @@ public class ProofofStake : MonoBehaviour
 
 
     public void Instance_SetSynergy() {
+
+        AudioManager.instance.Play_SynergySfx();
         baseValue = 0;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 

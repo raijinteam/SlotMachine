@@ -30,6 +30,8 @@ public class Bagholder : MonoBehaviour {
 
     public void Instance_SetSynergy() {
 
+        AudioManager.instance.Play_SynergySfx();
+
         if (count>3) {
             BaseValue = 1;
         }

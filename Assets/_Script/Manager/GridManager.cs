@@ -288,7 +288,7 @@ public class GridManager : MonoBehaviour
             for (int i = 0; i < sysnergyFinction.Count; i++) {
                
                 sysnergyFinction[i]();
-                AudioManager.instance.Play_SynergySfx();
+               
                yield return new WaitForSeconds(0.5f);
               
                       

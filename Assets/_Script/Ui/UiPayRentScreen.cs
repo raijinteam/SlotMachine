@@ -15,7 +15,7 @@ public class UiPayRentScreen : MonoBehaviour {
     private void Message() {
 
        
-        txt_Message.text = "Pay taxes of $ "  + LevelManager.instance.CurrentLevel.RentValue;
+        txt_Message.text = "Pay taxes of $"  + LevelManager.instance.CurrentLevel.RentValue;
     }
     public void OnClickOnBtn_PayClick() {
 

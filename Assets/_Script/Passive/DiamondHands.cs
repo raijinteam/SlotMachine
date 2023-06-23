@@ -31,6 +31,8 @@ public class DiamondHands : MonoBehaviour
    
 
     public void Instance_SetSynergy() {
+
+       
         baseValue = 0;
         list_Coin.Clear();
       

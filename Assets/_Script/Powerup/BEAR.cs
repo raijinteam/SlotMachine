@@ -25,6 +25,8 @@ public class BEAR : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
+        AudioManager.instance.Play_SynergySfx();
+
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
            

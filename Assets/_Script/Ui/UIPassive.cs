@@ -16,7 +16,7 @@ public class UIPassive : MonoBehaviour
     [SerializeField] private int currentReloadValue;
     [SerializeField]private int reloadValue;
     [SerializeField]private TextMeshProUGUI txt_NextReloadValue;
-    [SerializeField] private TextMeshProUGUI txt_RemaingValue;
+   
     [SerializeField] private TextMeshProUGUI txt_CurrentSpin;
     [SerializeField]private TextMeshProUGUI txt_CurrentLevelCollectedCoin;
     [SerializeField]private TextMeshProUGUI txt_RentCoin;
@@ -30,9 +30,11 @@ public class UIPassive : MonoBehaviour
         currentReloadValue = reloadValue;
         txt_NextReloadValue.text = currentReloadValue.ToString();
         txt_CurrentLevelCollectedCoin.text = GameManager.instance.Score.ToString();
-        txt_RentCoin.text = LevelManager.instance.CurrentLevel.RentValue.ToString();
+      
         txt_CurrentSpin.text = LevelManager.instance.CurrentSpin.ToString();
-        txt_RemaingValue.text = (LevelManager.instance.CurrentLevel.SpinValue - LevelManager.instance.CurrentSpin).ToString();
+
+        int remaing = (LevelManager.instance.CurrentLevel.SpinValue - LevelManager.instance.CurrentSpin);
+        txt_RentCoin.text = LevelManager.instance.CurrentLevel.RentValue.ToString() + " Due in " + remaing + " Spin";
     }
 
     private void SetPowerupPanel() {
