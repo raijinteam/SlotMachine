@@ -37,7 +37,9 @@ public class SetDestroySetup : MonoBehaviour
                 list_Actions.Add(list_Gamobject[i].GetComponent<CloudMining>().Instance_SetDestroyeObj);
             }
 
-            // Crain = 15 ,NoDestroySetUp
+            else if (list_Gamobject[i].mySymbolIndex == 15) {
+                list_Actions.Add(list_Gamobject[i].GetComponent<CrainNoteRight>().Instance_SetDestroyeObj);
+            }
             //Cross Chain = 16, NoDestroySetUp
             // Dead Cat = 17 , NoDestrySetUp
             // Dealth Cross  = 18 , NoDestrySetUp

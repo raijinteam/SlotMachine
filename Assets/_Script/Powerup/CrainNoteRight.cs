@@ -4,15 +4,54 @@ using UnityEngine;
 
 public class CrainNoteRight : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] private SymbolData symbolData;
+    private int baseValue;
+
+    private int vitalickSymboleIndex = 15;
+    private int satoshiNakamotoIndex = 27;
+
+    private void OnEnable() {
+        baseValue = symbolData.Basevalue;
+
+        GridManager.instance.SetCoinSetup += Instance_SetCoinSetup;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+
+    private void OnDisable() {
+
+        GridManager.instance.SetCoinSetup -= Instance_SetCoinSetup;
+
     }
+    public void Instance_SetDestroyeObj() {
+
+
+        for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
+
+
+            if (satoshiNakamotoIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                StartCoroutine(delayDestroy(this.gameObject));
+                return;
+            }
+
+            if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+
+                StartCoroutine(delayDestroy(this.gameObject));
+                return;
+            }
+
+
+        }
+    }
+
+    private IEnumerator delayDestroy(GameObject vitalick) {
+        yield return new WaitForSeconds(0.5f);
+        GridManager.instance.RemoveGameObjectInList(vitalick);
+    }
+
+   
+    private void Instance_SetCoinSetup(object sender, System.EventArgs e) {
+        CoinHandler.instance.SpawnCoin(baseValue, transform.position);
+    }
+
 }

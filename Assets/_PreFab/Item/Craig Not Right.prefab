@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mySymbolIndex: 15
   spriteRenderer: {fileID: 9070872515058938656}
-  Basevalue: 0
+  Basevalue: 2
 --- !u!114 &6682532146538209322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 779bf090a5c245648bf5c36ac7f3ac26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symbolData: {fileID: 6726428679811837405}
 --- !u!212 &9070872515058938656
 SpriteRenderer:
   m_ObjectHideFlags: 0
