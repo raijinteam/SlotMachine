@@ -10,7 +10,7 @@ public class NFT : MonoBehaviour {
     public int BaseValue { get; set; }
 
     private int ethCoinSymboleIndex = 2;
-    private int fomoBuyerIndex = 8;
+    private int fomoBuyerIndex = 20;
 
 
     private void OnEnable() {

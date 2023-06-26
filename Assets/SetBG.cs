@@ -5,8 +5,7 @@ using UnityEngine;
 public class SetBG : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer renderer_BG;
-    void Start()
-    {
+    private void Update() {
         float worldScreenHeight = Camera.main.orthographicSize * 2;
         float worldScreenWidth = worldScreenHeight / Screen.height * Screen.width;
         Vector3 a = new Vector3(
@@ -17,5 +16,4 @@ public class SetBG : MonoBehaviour
             renderer_BG.transform.localScale.z * a.z);
     }
 
-   
 }

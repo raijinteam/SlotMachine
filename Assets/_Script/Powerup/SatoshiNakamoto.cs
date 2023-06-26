@@ -8,7 +8,7 @@ public class SatoshiNakamoto : MonoBehaviour
     [SerializeField] private SymbolData symbolData;
     private int baseValue;
 
-    private int vitalickSymboleIndex = 15;
+    private int vitalickSymboleIndex = 29;
     private int bitcoinSymboleIndex = 1;
 
     private void OnEnable() {

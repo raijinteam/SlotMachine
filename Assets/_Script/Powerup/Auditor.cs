@@ -10,7 +10,7 @@ public class Auditor : MonoBehaviour
     private int baseValue;
     private int cloudMiningIndex = 14;
     private int telegramScammerIndex = 28;
-    private int crainNotRightIndex = 29;
+    private int crainNotRightIndex = 15;
     private int fomoBuyerIndex = 20;
 
     private void OnEnable() {

@@ -7,8 +7,8 @@ public class KYCPaper : MonoBehaviour
 {
     [SerializeField] private SymbolData symbolData;
      private int baseValue;
-    private int fomoBuyerIndex = 8;
-    private int HodlerIndex = 9;
+    private int fomoBuyerIndex = 20;
+    private int HodlerIndex = 22;
 
     private void OnEnable() {
 

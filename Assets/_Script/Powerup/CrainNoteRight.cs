@@ -7,7 +7,7 @@ public class CrainNoteRight : MonoBehaviour
     [SerializeField] private SymbolData symbolData;
     private int baseValue;
 
-    private int vitalickSymboleIndex = 15;
+    private int vitalickSymboleIndex = 29;
     private int satoshiNakamotoIndex = 27;
 
     private void OnEnable() {
@@ -29,13 +29,15 @@ public class CrainNoteRight : MonoBehaviour
 
 
             if (satoshiNakamotoIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+                Debug.Log("SatoshiNakanmoto");
                 StartCoroutine(delayDestroy(this.gameObject));
                 return;
             }
 
             if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-
+                Debug.Log("vitalik");
                 StartCoroutine(delayDestroy(this.gameObject));
                 return;
             }

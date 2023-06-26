@@ -10,6 +10,8 @@ public class TargetSetup : MonoBehaviour
     private float flt_Y_TopPostion = -2.2f;
     private int Coin;
 
+    private bool isanimationStart;
+
     //[SerializeField] private Canvas canvas;
     [SerializeField] private RectTransform rectTransform;
 
@@ -23,21 +25,34 @@ public class TargetSetup : MonoBehaviour
 
     private void Start() {
 
-
-     
         Camera camera = Camera.main;  // Use the camera that can see the canvas
 
         Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
         Vector3 worldPosition = camera.ScreenToWorldPoint(screenPosition);
 
-        transform.position = new Vector3(worldPosition.x,worldPosition.y,0);
+        transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
+
 
         flt_Y_DownPostion = transform.localPosition.y;
 
         txt_Mesh.gameObject.SetActive(false);
     }
+
+    private void Update() {
+        if (isanimationStart) {
+            return;
+        }
+
+        Camera camera = Camera.main;  // Use the camera that can see the canvas
+
+        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
+        Vector3 worldPosition = camera.ScreenToWorldPoint(screenPosition);
+
+        transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
+    }
     public void TargetUpAnimation(float time) {
 
+        isanimationStart = true;
         transform.DOLocalMoveY(flt_Y_TopPostion, time);
         
 
@@ -50,6 +65,7 @@ public class TargetSetup : MonoBehaviour
         
     }
     private void CheckingGameOver() {
+        isanimationStart = false;
         if (GameManager.instance.Score < 0) {
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(false);
             UiManager.instance.GetGameoverScreen.gameObject.SetActive(true);

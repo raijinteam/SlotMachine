@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -63244,7 +63244,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Is Read
+  m_text: Continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 104dde9b24c2d4040990ef8c2d5a743a, type: 2}
   m_sharedMaterial: {fileID: -6206037127528797995, guid: 104dde9b24c2d4040990ef8c2d5a743a, type: 2}
@@ -69053,7 +69053,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1705574775}
   - {fileID: 1834293108}
   - {fileID: 1515928518}
   - {fileID: 2024825683}
@@ -73664,7 +73663,7 @@ Transform:
   - {fileID: 1413342513}
   - {fileID: 112931979}
   m_Father: {fileID: 1417781478}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1515928519
 MonoBehaviour:
@@ -80649,8 +80648,8 @@ Transform:
   m_LocalScale: {x: 2.24, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1417781478}
-  m_RootOrder: 0
+  m_Father: {fileID: 1834293108}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!331 &1705574776
 SpriteMask:
@@ -86633,8 +86632,9 @@ Transform:
   - {fileID: 885704216}
   - {fileID: 1730121757}
   - {fileID: 245811333}
+  - {fileID: 1705574775}
   m_Father: {fileID: 1417781478}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843827322
 GameObject:
@@ -95369,7 +95369,7 @@ Transform:
   - {fileID: 1876524106}
   - {fileID: 537224616}
   m_Father: {fileID: 1417781478}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2024896271
 GameObject:
@@ -96444,7 +96444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2056158410
 Transform:
   m_ObjectHideFlags: 0
@@ -96496,11 +96496,6 @@ MonoBehaviour:
   - {fileID: 1032496191}
   - {fileID: 1600196268}
   - {fileID: 469880994}
-  - {fileID: 986562329}
-  - {fileID: 1103939842}
-  - {fileID: 854886158}
-  - {fileID: 1413342513}
-  - {fileID: 112931979}
   all_GameStartObj:
   - {fileID: 5447899849329358461, guid: d912e7239a6d0494397f96570597907d, type: 3}
   - {fileID: 5366105094747265761, guid: ca9d7237c8bb0864189cc157d5bae728, type: 3}

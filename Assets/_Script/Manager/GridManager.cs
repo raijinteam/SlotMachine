@@ -20,9 +20,11 @@ public class GridManager : MonoBehaviour
     [SerializeField] private List<GameObject> list_OfActivateGameObject;
     [SerializeField] private List<GameObject> list_ThisWaveObject;
     public List<GameObject> list_ActivateInHirachy;
-    List<Action> sysnergyFinction = new List<Action>();
-    List<Action> SetSpawnObjFunction = new List<Action>();
-    List<Action> SetDestroyeObjFunction = new List<Action>();
+
+    [Header("----Action---")]
+    public List<Action> sysnergyFinction = new List<Action>();
+    public List<Action> SetSpawnObjFunction = new List<Action>();
+    public List<Action> SetDestroyeObjFunction = new List<Action>();
     [SerializeField] List<SymbolData> list_Symboldat = new List<SymbolData>();
     [SerializeField]private List<Transform> list_AllPostion;
     [SerializeField] private GameObject transform_Store;
@@ -168,7 +170,7 @@ public class GridManager : MonoBehaviour
         // Remove All list In grid
         list_AllPostion.Clear();
 
-
+        RawHandler.SetAllRawMotion();
         ShortingData(list_ActivateInHirachy);
        
       
@@ -202,13 +204,8 @@ public class GridManager : MonoBehaviour
             list_Symboldat.Add(gameObjects[i].GetComponent<SymbolData>());
            
         }
-        SetSpawnObjFunction.Clear();
-        SetSpawnObjFunction = spawnObjSetup.SetListOfAction(SetSpawnObjFunction, list_Symboldat);
-        SetDestroyeObjFunction.Clear();
-        SetDestroyeObjFunction = setDestroySetUp.SetListOfAction(SetDestroyeObjFunction, list_Symboldat);
-        sysnergyFinction.Clear();
-        sysnergyFinction = synergySetup.SetListOfAction(sysnergyFinction, list_Symboldat);
-        RawHandler.SetAllRawMotion();
+       
+       
     }
 
      public void SetPowerupProcess() {
@@ -238,6 +235,12 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator DealayOfSpawnObjEvent(float delayOfSpawnObj) {
         yield return new WaitForSeconds(delayOfSpawnObj);
+
+        ShortingData(list_ActivateInHirachy);
+        SetSpawnObjFunction.Clear();
+        SetSpawnObjFunction = spawnObjSetup.SetListOfAction(SetSpawnObjFunction, list_Symboldat);
+      
+
         float time = 0;
         if (SetSpawnObjFunction.Count != 0) {
 
@@ -258,6 +261,10 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator DelayOfDestroyEvent(float time) {
         yield return new WaitForSeconds(time);
+        ShortingData(list_ActivateInHirachy);
+        SetDestroyeObjFunction.Clear();
+        SetDestroyeObjFunction = setDestroySetUp.SetListOfAction(SetDestroyeObjFunction, list_Symboldat);
+       
         float Time;
         if (SetDestroyeObjFunction.Count != 0) {
 
@@ -279,17 +286,26 @@ public class GridManager : MonoBehaviour
     private IEnumerator DelayOfSynerGy(float  time ) {
         yield return new WaitForSeconds(time);
         float Time;
+        ShortingData(list_ActivateInHirachy);
+        sysnergyFinction.Clear();
+        sysnergyFinction = synergySetup.SetListOfAction(sysnergyFinction, list_Symboldat);
 
-       
 
         if (sysnergyFinction.Count != 0) {
            
             Time = flt_DelayOfSynergyEvent;
             for (int i = 0; i < sysnergyFinction.Count; i++) {
+
+
+                if (sysnergyFinction[i] != null) {
+                    sysnergyFinction[i].Invoke();
+                    yield return new WaitForSeconds(0.5f);
+                }
+                   
+                
+                
                
-                sysnergyFinction[i]();
                
-               yield return new WaitForSeconds(0.5f);
               
                       
             }
