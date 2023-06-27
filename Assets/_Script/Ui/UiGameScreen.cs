@@ -8,7 +8,7 @@ using DG.Tweening;
 
 public class UiGameScreen : MonoBehaviour
 {
-    [SerializeField]private Button btn_Spin;
+    public Button btn_Spin;
     [SerializeField] private float flt_DelayOfTweSpin;
     [SerializeField] private Sprite img_Unselect;
     [SerializeField] private Sprite img_Select;

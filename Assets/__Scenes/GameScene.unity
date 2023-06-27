@@ -22651,7 +22651,7 @@ MonoBehaviour:
   coin: {fileID: 4036973206939263422, guid: 2ee3842f15d9df64c8e1ecbd069bf123, type: 3}
   spawnDelay: 0.5
   afterSpawnDelay: 1
-  coinAnimationTime: 1.5
+  coinAnimationTime: 0.65
   coinTargetUpAnimationTime: 0.5
   DealyOfCoinDownAnimation: 0.5
   List_Coin: []
@@ -60417,7 +60417,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: eaee2102880b50544af9526d0305a199, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1cdd1d87845975f4888b8975f6ec3111, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

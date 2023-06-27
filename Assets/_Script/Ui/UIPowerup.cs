@@ -123,7 +123,7 @@ public class UIPowerup : MonoBehaviour {
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(true);
             UiManager.instance.GetUiGamePlayScreen.SelectBtnActive();
             for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
-                     if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {
+                if (GridManager.instance.list_ActivateInHirachy[i].TryGetComponent<CrossChain>(out CrossChain crossChain)) {
                     crossChain.IsSwap = true;
                     Debug.Log(crossChain.IsSwap);
                 }

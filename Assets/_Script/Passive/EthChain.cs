@@ -15,7 +15,7 @@ public class EthChain : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+        bool hasfoundSynergy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -25,6 +25,7 @@ public class EthChain : MonoBehaviour
                 ethCoin.BaseValue += 1;
                 StopAnimation();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
 
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -32,8 +33,12 @@ public class EthChain : MonoBehaviour
                 cardanoCoin.BaseValue += 1;
                 StopAnimation();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
             }
 
+        }
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 

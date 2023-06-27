@@ -25,7 +25,7 @@ public class BEAR : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+        bool hasFoundSynergy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -37,6 +37,7 @@ public class BEAR : MonoBehaviour
                     bitCoin.BaseValue -= 1;
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -44,6 +45,7 @@ public class BEAR : MonoBehaviour
                 caradanoCoin.BaseValue -= 1;
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -51,6 +53,7 @@ public class BEAR : MonoBehaviour
                     eTHCoin.BaseValue -= 1;
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -58,10 +61,13 @@ public class BEAR : MonoBehaviour
                     stableCoin.BaseValue -= 1;
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
 
-            
-
+        
+        }
+        if (hasFoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 

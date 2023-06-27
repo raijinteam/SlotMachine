@@ -44,27 +44,32 @@ public class Vitalick : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+        bool hasFoundSynergy = false;
 
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
 
             if (adjucentData.all_Adjucent[i].transform.childCount != 0) {
 
-              
-                 if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+                if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                     ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
                     if (eTHCoin != null) {
                         eTHCoin.BaseValue *= 2;
                     }
-                   
+
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasFoundSynergy = true;
                 }
 
             }
 
+        }
+
+        if (hasFoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 

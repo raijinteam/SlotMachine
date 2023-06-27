@@ -24,8 +24,9 @@ public class CandlestickRed : MonoBehaviour
 
 
     public void Instance_SetSynergy() {
+        bool hasFoundSynergy = false;
 
-        AudioManager.instance.Play_SynergySfx();
+
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
 
@@ -40,6 +41,7 @@ public class CandlestickRed : MonoBehaviour
                 bitCoin.BaseValue -= 1;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (cardanoCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -47,6 +49,7 @@ public class CandlestickRed : MonoBehaviour
                 cardanoCoin.BaseValue -= 1;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (ethCoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -54,6 +57,7 @@ public class CandlestickRed : MonoBehaviour
                 eTHCoin.BaseValue -= 1;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (stableCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -61,9 +65,14 @@ public class CandlestickRed : MonoBehaviour
                 stableCoin.BaseValue -= 1;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
 
 
+        }
+
+        if (hasFoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 

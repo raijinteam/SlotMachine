@@ -52,6 +52,8 @@ public class TradingDiploma : MonoBehaviour
     }
 
     private void SetCoinValue(int value) {
+
+        bool hasfoundSynergy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
 
@@ -61,6 +63,7 @@ public class TradingDiploma : MonoBehaviour
                 bitCoin.BaseValue += value;
                 bitCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
+                hasfoundSynergy = true;
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -69,6 +72,7 @@ public class TradingDiploma : MonoBehaviour
                 CaradanoCoin.BaseValue += value;
                 CaradanoCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
+                hasfoundSynergy = true;
 
             }
             else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -78,7 +82,7 @@ public class TradingDiploma : MonoBehaviour
                 eTHCoin.BaseValue += value;
                 eTHCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
-
+                hasfoundSynergy = true;
             }
             else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -86,9 +90,13 @@ public class TradingDiploma : MonoBehaviour
                 stableCoin.BaseValue += value;
                 stableCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
+                hasfoundSynergy = true;
             }
 
 
+        }
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
     private void StopAnimation() {

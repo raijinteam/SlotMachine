@@ -52,44 +52,53 @@ public class AlgoTrading : MonoBehaviour
     }
 
     private void SetCoinValue(int value) {
+        bool hasfoundSynergy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
-           
-                if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
-                    bitCoin.BaseValue += value;
-                    bitCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                    StopAnimation();
-                }
-                else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+                BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
+                bitCoin.BaseValue += value;
+                bitCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
+                StopAnimation();
+            }
+            else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                 CardanoCoin CaradanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
 
                 CaradanoCoin.BaseValue += value;
                 CaradanoCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
+                hasfoundSynergy = true;
 
-                }
-                else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            }
+            else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+                ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
 
-                    eTHCoin.BaseValue += value;
-                    eTHCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                    StopAnimation();
+                eTHCoin.BaseValue += value;
+                eTHCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                StopAnimation();
+                hasfoundSynergy = true;
 
-                }
-                else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            }
+            else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
-                    stableCoin.BaseValue += value;
-                    stableCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                    StopAnimation();
-                }
-           
+                StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
+                stableCoin.BaseValue += value;
+                stableCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                StopAnimation();
+                hasfoundSynergy = true;
+            }
+
 
         }
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
+        }
+
     }
     private void StopAnimation() {
 

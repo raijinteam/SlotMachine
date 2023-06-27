@@ -29,7 +29,7 @@ public class CoinAnimation : MonoBehaviour
 
     private IEnumerator AfterSpawnDelay(float afterSpawnDelay, float CoinAnimation) {
         yield return new WaitForSeconds(afterSpawnDelay);
-
+        AudioManager.instance.Play_CoinSfx();
         StartCoroutine(RunforTime(CoinAnimation));
     }
 

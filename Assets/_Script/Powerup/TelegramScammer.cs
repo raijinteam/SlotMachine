@@ -33,39 +33,46 @@ public class TelegramScammer : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+        bool hasfoundSynergy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
-      
 
-                if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    FomoBuyer fomoBuyer = GridManager.instance.list_ActivateInHirachy[i].GetComponent<FomoBuyer>();
-                    fomoBuyer.BaseValue -= 1;
-                    stolenValue += 1;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                }
-                else if (HodlerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    Hodler hodler = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Hodler>();
-                    hodler.BaseValue -= 1;
-                    stolenValue += 1;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                }
-                else if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                FomoBuyer fomoBuyer = GridManager.instance.list_ActivateInHirachy[i].GetComponent<FomoBuyer>();
+                fomoBuyer.BaseValue -= 1;
+                stolenValue += 1;
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
+            }
+            else if (HodlerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    Vitalick vitalick = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Vitalick>();
-                    vitalick.BaseValue -= 1;
-                    stolenValue += 1;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                Hodler hodler = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Hodler>();
+                hodler.BaseValue -= 1;
+                stolenValue += 1;
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
+            }
+            else if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                }
+                Vitalick vitalick = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Vitalick>();
+                vitalick.BaseValue -= 1;
+                stolenValue += 1;
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasfoundSynergy = true;
 
-            
+            }
+
+
 
         }
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
+        }
+
     }
     private void Instance_SetCoinSetup(object sender, System.EventArgs e) {
 

@@ -93,10 +93,20 @@ public class SynergySetup : MonoBehaviour
             }
             // fur  = 21 ,nosynergy
             //hodler = 22 , nosynergy
-            // Kyc = 23 ,Nosynergy
+            else if (list_Gamobject[i].mySymbolIndex == 23) {
+
+
+                list_Actions.Add(list_Gamobject[i].GetComponent<KYCPaper>().Instance_SetSynergy);
+
+            }
             // Load = 24 , Nosynergy
             // Mychal Saylor = 25 , nosynegy
-            // NfT = 26 , Nosynergy;
+            else if (list_Gamobject[i].mySymbolIndex == 26) {
+
+
+                list_Actions.Add(list_Gamobject[i].GetComponent<NFT>().Instance_SetSynergy);
+
+            }
 
             else if (list_Gamobject[i].mySymbolIndex == 27) {
 

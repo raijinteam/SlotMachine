@@ -25,53 +25,64 @@ public class Antidumb : MonoBehaviour
     }
 
     private void Instance_setAntiDumb(object sender, System.EventArgs e) {
+
+        bool hasfoundSynergy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
-          
 
-                if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
-                    if (bitCoin.BaseValue<1) {
-                        bitCoin.BaseValue = 1;
-                        bitCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                        StopAnimation();
-                    }
-                    
+            if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+                BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
+                if (bitCoin.BaseValue < 1) {
+                    bitCoin.BaseValue = 1;
+                    bitCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
+                    StopAnimation();
                 }
-                else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+            }
+            else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                 CardanoCoin CaradnoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
 
                 if (CaradnoCoin.BaseValue < 1) {
                     CaradnoCoin.BaseValue = 1;
                     CaradnoCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
                     StopAnimation();
                 }
 
+            }
+            else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+
+                ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+
+                if (eTHCoin.BaseValue < 1) {
+                    eTHCoin.BaseValue = 1;
+                    eTHCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
+                    StopAnimation();
                 }
-                else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+            }
+            else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    if (eTHCoin.BaseValue <1) {
-                        eTHCoin.BaseValue = 1;
-                        eTHCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                        StopAnimation();
-                    }
-
+                StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
+                if (stableCoin.BaseValue < 1) {
+                    stableCoin.BaseValue = 1;
+                    stableCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
+                    StopAnimation();
                 }
-                else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            }
 
-                    StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
-                    if (stableCoin.BaseValue <1) {
-                        stableCoin.BaseValue = 1;
-                        stableCoin.GetComponentInParent<RawMotion>().VFXForMOtion();
-                        StopAnimation();
-                    }
-                }
-            
 
+        }
+
+
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
      private void StopAnimation() {

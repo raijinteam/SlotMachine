@@ -43,7 +43,7 @@ public class ProofofStake : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+        bool hasFoundSynergy = false;
         baseValue = 0;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -55,7 +55,11 @@ public class ProofofStake : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
 
             }
+            hasFoundSynergy = true;
 
+        }
+        if (hasFoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 

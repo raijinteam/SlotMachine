@@ -25,8 +25,9 @@ public class NFT : MonoBehaviour {
         GridManager.instance.SetCoinSetup -= Instance_SetCoinSetup;
     }
 
-    public void Instance_SetSynergy(object sender, EventArgs e) {
+    public void Instance_SetSynergy() {
 
+        bool hasfouneSynergy = false;
         int ExtraValue = 0;
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
@@ -36,11 +37,18 @@ public class NFT : MonoBehaviour {
                 if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                     ExtraValue++;
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
+                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfouneSynergy = true;
                     CheckingEthGrid();
                 }
 
             }
 
+        }
+
+        if (hasfouneSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
 
        
@@ -59,25 +67,19 @@ public class NFT : MonoBehaviour {
 
     }
     private void CheckingEthGrid() {
+
+
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
-          
+            if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                //GameObject child = GridManager.instance.all_Postion[i].GetChild(0).gameObject;
-
-                    //if (child.TryGetComponent<ETHCoin>(out ETHCoin eTHCoin)) {
-                    //    BaseValue++;
-
-                    //    // We Channging Property Not Orinal Value;
-
-                    //}
-                 if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
-
-                    BaseValue++;
-                 }
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                BaseValue++;
+            }
 
 
-            
+
         }
     }
 }

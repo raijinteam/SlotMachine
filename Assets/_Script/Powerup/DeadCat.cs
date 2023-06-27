@@ -21,7 +21,7 @@ public class DeadCat : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+       bool hasFoundSynergy = false;
 
         AdjucentData adjucentData = transform.GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
@@ -36,6 +36,7 @@ public class DeadCat : MonoBehaviour
                 bitCoin.BaseValue *= 2;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (cardanoCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -43,6 +44,8 @@ public class DeadCat : MonoBehaviour
                 cardanoCoin.BaseValue *= 2;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+
+                hasFoundSynergy = true;
             }
             else if (ethCoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -50,6 +53,7 @@ public class DeadCat : MonoBehaviour
                 eTHCoin.BaseValue *= 2;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
             else if (stableCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -57,10 +61,17 @@ public class DeadCat : MonoBehaviour
                 stableCoin.BaseValue *= 2;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                hasFoundSynergy = true;
             }
 
 
         }
+
+        if (hasFoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
+        }
+
+       
     }
 
    

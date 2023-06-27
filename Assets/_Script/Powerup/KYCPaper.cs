@@ -23,7 +23,9 @@ public class KYCPaper : MonoBehaviour
     }
 
    
-    public void Instance_SetSynergy(object sender, EventArgs e) {
+    public void Instance_SetSynergy() {
+
+        bool hasfoundSynergy = false;   
 
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
@@ -36,6 +38,7 @@ public class KYCPaper : MonoBehaviour
                     fomoBuyer.BaseValue += 1;
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
                 }
                 else if (HodlerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -43,11 +46,15 @@ public class KYCPaper : MonoBehaviour
                     hodler.BaseValue += 1;
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasfoundSynergy = true;
                 }
                
 
             }
 
+        }
+        if (hasfoundSynergy) {
+            AudioManager.instance.Play_SynergySfx();
         }
     }
     private void Instance_SetCoinSetup(object sender, EventArgs e) {

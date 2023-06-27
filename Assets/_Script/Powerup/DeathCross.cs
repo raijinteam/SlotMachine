@@ -25,7 +25,7 @@ public class DeathCross : MonoBehaviour {
 
     public void Instance_SetSynergy() {
 
-        AudioManager.instance.Play_SynergySfx();
+      bool  hasFoundSynergy = false;
         count++;
         if (count> CoinZeroCount) {
             count = 0;
@@ -39,12 +39,14 @@ public class DeathCross : MonoBehaviour {
                     bitCoin.PerminateValueZero();
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasFoundSynergy = true;
                 }
                 else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                     CardanoCoin cardanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
                     cardanoCoin.PerminateValueZero();
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasFoundSynergy = true;
                 }
                 else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -52,6 +54,7 @@ public class DeathCross : MonoBehaviour {
                     eTHCoin.PerminateValueZero();
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasFoundSynergy = true;
                 }
                 else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -59,10 +62,15 @@ public class DeathCross : MonoBehaviour {
                     stableCoin.PerminateValueZero();
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    hasFoundSynergy = true;
                 }
 
 
 
+            }
+
+            if (hasFoundSynergy) {
+                AudioManager.instance.Play_SynergySfx();
             }
         }
 

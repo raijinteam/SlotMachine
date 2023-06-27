@@ -24,10 +24,15 @@ public class Loan : MonoBehaviour
         
         if (count>= moneyReturnCount ) {
             CoinHandler.instance.SpawnCoin(-75, transform.position);
+            StartCoroutine(DestroyObject(this.gameObject));
         }
     }
 
-  
+    private IEnumerator DestroyObject(GameObject child) {
+        yield return new WaitForSeconds(1);
+        GridManager.instance.RemoveGameObjectInList(child);
 
-   
+    }
+
+
 }

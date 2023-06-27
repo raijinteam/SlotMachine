@@ -52,12 +52,13 @@ public class CoinHandler : MonoBehaviour
 
         for (int i = 0; i < List_Coin.Count; i++) {
 
-            AudioManager.instance.Play_CoinSfx();
+            
             List_Coin[i].GetComponent<CoinAnimation>().SetAnimation( coinAnimationTime, afterSpawnDelay);
         }
         
         GameManager.instance.GetTargetofCoin().TargetUpAnimation(coinTargetUpAnimationTime);
 
+        
         // delay for Coin Destroy  and Some More dealy For Gamer See Current Round Score
         StartCoroutine(CoinDownAnimation());
     }
@@ -67,7 +68,7 @@ public class CoinHandler : MonoBehaviour
         
 
         yield return new WaitForSeconds(coinAnimationTime + DealyOfCoinDownAnimation+ afterSpawnDelay);
-     
+        
         GameManager.instance.GetTargetofCoin().TargetDownAmiantion(coinTargetUpAnimationTime);
         GameManager.instance.GetTargetofCoin().resetCoin();
         list_flt_Ammount.Clear();
@@ -85,6 +86,7 @@ public class CoinHandler : MonoBehaviour
    }
 
     public void SpawnCoinLoanTime(int Ammount, Vector3 GridPosition) {
+        UiManager.instance.GetUiGamePlayScreen.btn_Spin.interactable = false;
         GameObject ThisCoin = Instantiate(coin, GridPosition, transform.rotation);
         ThisCoin.GetComponent<CoinAnimation>().SetCoinValue(Ammount);
         loanCoin = ThisCoin;
