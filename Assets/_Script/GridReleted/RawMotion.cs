@@ -87,27 +87,27 @@ public class RawMotion : MonoBehaviour
 
           
 
-            if (transform.position.y - startPostion < 2) {
+            if (transform.localPosition.y - startPostion < 2) {
 
                 Sequence SEQ = DOTween.Sequence();
 
-                SEQ.Append(transform.DOMoveY(startPostion, moveSpeed).SetEase(Ease.Linear)).OnComplete(StopSlotmachine);
+                SEQ.Append(transform.DOLocalMoveY(startPostion, moveSpeed).SetEase(Ease.Linear)).OnComplete(StopSlotmachine);
 
 
 
                 return;
             }
-            float pos = transform.position.y - 2;
+            float pos = transform.localPosition.y - 2;
 
-            transform.DOMoveY(pos, moveSpeed).SetEase(Ease.Linear).OnComplete(ResetBackground);
+            transform.DOLocalMoveY(pos, moveSpeed).SetEase(Ease.Linear).OnComplete(ResetBackground);
 
         }
         else {
 
             // Reset the background position to the start and start the animation again
-            if (transform.position.y < changePostion && !isTurnZero) {
+            if (transform.localPosition.y < changePostion && !isTurnZero) {
 
-                transform.position = new Vector3(transform.position.x, afterChangeAssignPostion, transform.localPosition.z);
+                transform.localPosition = new Vector3(transform.localPosition.x, afterChangeAssignPostion, transform.localPosition.z);
                 turn++;
                 if (turn > maxTurn) {
 
@@ -118,9 +118,9 @@ public class RawMotion : MonoBehaviour
 
             }
 
-            float postion = transform.position.y - 2;
+            float postion = transform.localPosition.y - 2;
 
-            transform.DOMoveY(postion, moveSpeed).SetEase(Ease.Linear).OnComplete(ResetBackground);
+            transform.DOLocalMoveY(postion, moveSpeed).SetEase(Ease.Linear).OnComplete(ResetBackground);
 
         }
 

@@ -17,8 +17,7 @@ public class DiamondHands : MonoBehaviour
     private int ethCoinSymboleIndex = 3;
     private int stableCoinIndex = 4;
 
-    [SerializeField] private int cuurntIndex;
-    [SerializeField] private int changeIndex;
+   
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private float flt_StopAnimationTime;
     [SerializeField] private float yOffset;

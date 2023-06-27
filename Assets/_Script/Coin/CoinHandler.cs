@@ -55,7 +55,8 @@ public class CoinHandler : MonoBehaviour
             
             List_Coin[i].GetComponent<CoinAnimation>().SetAnimation( coinAnimationTime, afterSpawnDelay);
         }
-        
+
+        GameManager.instance.GetTargetofCoin().gameObject.SetActive(true);
         GameManager.instance.GetTargetofCoin().TargetUpAnimation(coinTargetUpAnimationTime);
 
         

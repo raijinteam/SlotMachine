@@ -52,14 +52,14 @@ public class Vitalick : MonoBehaviour
             if (adjucentData.all_Adjucent[i].transform.childCount != 0) {
 
 
-                if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                if (ethCoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+                    ETHCoin eTHCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<ETHCoin>();
                     if (eTHCoin != null) {
                         eTHCoin.BaseValue *= 2;
                     }
 
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
                 }

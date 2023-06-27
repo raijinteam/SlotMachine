@@ -65,6 +65,7 @@ public class TargetSetup : MonoBehaviour
         
     }
     private void CheckingGameOver() {
+        GameManager.instance.GetTargetofCoin().gameObject.SetActive(false);
         isanimationStart = false;
         if (GameManager.instance.Score < 0) {
             UiManager.instance.GetUiGamePlayScreen.gameObject.SetActive(false);
