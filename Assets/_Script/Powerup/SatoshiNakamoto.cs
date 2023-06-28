@@ -24,39 +24,40 @@ public class SatoshiNakamoto : MonoBehaviour
 
     }
     public void Instance_SetDestroyeObj() {
-
+        symbolData.shouldDestroy = false;
        
+
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
-           
 
-               // GameObject child = GridManager.instance.all_Postion[i].GetChild(0).gameObject;
 
-                //if (child.TryGetComponent<Vitalick>(out Vitalick vitalick)) {
+            // GameObject child = GridManager.instance.all_Postion[i].GetChild(0).gameObject;
 
-                //    Debug.Log("satoshinakamo Destroy vitralik");
-                //    vitalick.IsStopRunning = true;
-                //    StartCoroutine(DetroyVitalick(vitalick.gameObject));
-                //    CoinHandler.instance.SpawnCoin(10, GridManager.instance.all_Postion[i].position);
-                //}
+            //if (child.TryGetComponent<Vitalick>(out Vitalick vitalick)) {
 
-                if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            //    Debug.Log("satoshinakamo Destroy vitralik");
+            //    vitalick.IsStopRunning = true;
+            //    StartCoroutine(DetroyVitalick(vitalick.gameObject));
+            //    CoinHandler.instance.SpawnCoin(10, GridManager.instance.all_Postion[i].position);
+            //}
 
-                   
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                    Vitalick vitalick = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Vitalick>();
-                   
-                    vitalick.IsStopRunning = true;
-                   
+            if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    
-                    StartCoroutine(delayDestroy(vitalick.gameObject));
-                   
-                    CoinHandler.instance.SpawnCoin(10, GridManager.instance.list_ActivateInHirachy[i].
-                                            GetComponentInParent<Transform>().position);
-                }
 
-           
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                Vitalick vitalick = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Vitalick>();
+                symbolData.shouldDestroy = true;
+                vitalick.IsStopRunning = true;
+
+
+
+                StartCoroutine(delayDestroy(vitalick.gameObject));
+
+                CoinHandler.instance.SpawnCoin(10, GridManager.instance.list_ActivateInHirachy[i].
+                                        GetComponentInParent<Transform>().position);
+            }
+
+
         }
     }
 
@@ -67,7 +68,7 @@ public class SatoshiNakamoto : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-
+        symbolData.shouldSynergy = false;
         bool hasfoundSynergy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
@@ -81,6 +82,7 @@ public class SatoshiNakamoto : MonoBehaviour
                    
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                symbolData.shouldSynergy = true;
                 hasfoundSynergy = true;
             }
             

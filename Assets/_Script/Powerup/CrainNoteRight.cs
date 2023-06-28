@@ -23,7 +23,7 @@ public class CrainNoteRight : MonoBehaviour
 
     }
     public void Instance_SetDestroyeObj() {
-
+        symbolData.shouldDestroy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -31,6 +31,7 @@ public class CrainNoteRight : MonoBehaviour
             if (satoshiNakamotoIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                 Debug.Log("SatoshiNakanmoto");
+                symbolData.shouldDestroy = true;
                 StartCoroutine(delayDestroy(this.gameObject));
                 return;
             }
@@ -38,6 +39,7 @@ public class CrainNoteRight : MonoBehaviour
             if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
                 Debug.Log("vitalik");
+                symbolData.shouldDestroy = true;
                 StartCoroutine(delayDestroy(this.gameObject));
                 return;
             }

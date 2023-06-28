@@ -18,12 +18,14 @@ public class SetDestroySetup : MonoBehaviour
             if (list_Gamobject[i].mySymbolIndex == 5) {
 
                 list_Actions.Add(list_Gamobject[i].GetComponent<AccreditedInvestor>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
 
             }
             // Asic = 6 , NoDestroySetup
             else if (list_Gamobject[i].mySymbolIndex == 7) {
 
                 list_Actions.Add(list_Gamobject[i].GetComponent<Auditor>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
 
             }
             // BaghHolder = 8 , NoDestroySetUp
@@ -35,16 +37,19 @@ public class SetDestroySetup : MonoBehaviour
 
             else if (list_Gamobject[i].mySymbolIndex == 14) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<CloudMining>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
 
             else if (list_Gamobject[i].mySymbolIndex == 15) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<CrainNoteRight>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
             //Cross Chain = 16, NoDestroySetUp
             // Dead Cat = 17 , NoDestrySetUp
             // Dealth Cross  = 18 , NoDestrySetUp
             else if (list_Gamobject[i].mySymbolIndex == 14) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<Escrow>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
 
             //FomoBuy = 20 ,NoDestrySetUp
@@ -54,23 +59,28 @@ public class SetDestroySetup : MonoBehaviour
             // Loan = 24 , NoDestrySetUp
             else if (list_Gamobject[i].mySymbolIndex == 25) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<MichaelSaylor>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
             // NfT = 26 , No Spawn Obj;
 
             else if (list_Gamobject[i].mySymbolIndex == 27) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<SatoshiNakamoto>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
             else if (list_Gamobject[i].mySymbolIndex == 28) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<TelegramScammer>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
 
             //Vitalik = 29 ,NoDestroyObj
 
             else if (list_Gamobject[i].mySymbolIndex == 30) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<Whale>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
             else if (list_Gamobject[i].mySymbolIndex == 31) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<Xpowerup>().Instance_SetDestroyeObj);
+                GridManager.instance.destroySymbolData.Add(list_Gamobject[i].GetComponent<SymbolData>());
             }
 
 

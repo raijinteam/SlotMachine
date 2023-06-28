@@ -22,6 +22,7 @@ public class SpawnObjSetup : MonoBehaviour
             if (list_Gamobject[i].mySymbolIndex == 6) {
 
                 list_Actions.Add(list_Gamobject[i].GetComponent<ASIC>().Instance_SetSpawnObj);
+                GridManager.instance.ShouldObjSpawn.Add(list_Gamobject[i].GetComponent<ASIC>().ShouldSpawnObj());
 
             }
             //Auditor = 7, Nospawn Obj
@@ -34,6 +35,7 @@ public class SpawnObjSetup : MonoBehaviour
 
             else if (list_Gamobject[i].mySymbolIndex == 14) {
                 list_Actions.Add(list_Gamobject[i].GetComponent<CloudMining>().Instance_SetSpawnObj);
+                GridManager.instance.ShouldObjSpawn.Add(list_Gamobject[i].GetComponent<CloudMining>().ShouldSpawnObj());
             }
            
             // Crain = 15 , No Spawn Obj
@@ -41,6 +43,7 @@ public class SpawnObjSetup : MonoBehaviour
             else if (list_Gamobject[i].mySymbolIndex == 17) {
 
                 list_Actions.Add(list_Gamobject[i].GetComponent<DeadCat>().Instance_SetSpawnObj);
+                GridManager.instance.ShouldObjSpawn.Add(list_Gamobject[i].GetComponent<DeadCat>().ShouldSpawnObj());
             }
             // Dealth Cross  = 18 , Nospawn Obj
             //escrew = 19 , No spawn Obj
@@ -58,6 +61,7 @@ public class SpawnObjSetup : MonoBehaviour
             else if (list_Gamobject[i].mySymbolIndex == 29) {
 
                 list_Actions.Add(list_Gamobject[i].GetComponent<Vitalick>().Instance_SetSpawnObj);
+                GridManager.instance.ShouldObjSpawn.Add(list_Gamobject[i].GetComponent<Vitalick>().ShouldSpawnObj());
 
             }
 

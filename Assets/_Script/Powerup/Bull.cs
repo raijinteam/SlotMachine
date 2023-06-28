@@ -27,7 +27,7 @@ public class Bull : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
-        
+        symbolData.shouldSynergy = false;
 
         bool hasFoundSynergy = false;
 
@@ -41,6 +41,7 @@ public class Bull : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -49,6 +50,7 @@ public class Bull : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -57,6 +59,7 @@ public class Bull : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -65,6 +68,7 @@ public class Bull : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
         }
 

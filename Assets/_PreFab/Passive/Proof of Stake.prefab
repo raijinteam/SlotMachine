@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3833388790732897630}
   - component: {fileID: 3225016411811809611}
   - component: {fileID: -8604602269277058528}
+  - component: {fileID: 1850096067228736100}
   m_Layer: 5
   m_Name: Proof of Stake
   m_TagString: Untagged
@@ -60,6 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e32e12d4fd1e040b04522c8880c1de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symbolData: {fileID: 1850096067228736100}
   rectTransform: {fileID: 4223205264535589785}
   flt_StopAnimationTime: 0.1
   yOffset: 10
@@ -78,6 +80,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 8
+--- !u!114 &1850096067228736100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506419922187335277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a1eb94b0a36264f9a837c1046f8a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySymbolIndex: 0
+  spriteRenderer: {fileID: 0}
+  Basevalue: 0
+  shouldDestroy: 0
+  shouldSynergy: 0
 --- !u!1 &6250967341597737449
 GameObject:
   m_ObjectHideFlags: 0

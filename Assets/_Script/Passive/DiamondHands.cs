@@ -6,7 +6,8 @@ using DG.Tweening;
 
 public class DiamondHands : MonoBehaviour
 {
-  
+
+    [SerializeField] private SymbolData symbolData;
     [SerializeField]private int baseValue;
    
    
@@ -38,6 +39,7 @@ public class DiamondHands : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasFoundSynergy = false;
         baseValue = 0;
         list_Coin.Clear();
@@ -51,12 +53,14 @@ public class DiamondHands : MonoBehaviour
                 StopAnimation();
                 list_Coin.Add(GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().gameObject);
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                 list_Coin.Add(GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().gameObject);
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
 
             }
             else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -64,6 +68,7 @@ public class DiamondHands : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
 
 
             }
@@ -72,6 +77,7 @@ public class DiamondHands : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 StopAnimation();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
 
 
             }

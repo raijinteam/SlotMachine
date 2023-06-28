@@ -25,6 +25,7 @@ public class KYCPaper : MonoBehaviour
    
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasfoundSynergy = false;   
 
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
@@ -32,21 +33,23 @@ public class KYCPaper : MonoBehaviour
 
             if (adjucentData.all_Adjucent[i].transform.childCount != 0) {
 
-                if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                if (fomoBuyerIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    FomoBuyer fomoBuyer = GridManager.instance.list_ActivateInHirachy[i].GetComponent<FomoBuyer>();
+                    FomoBuyer fomoBuyer = adjucentData.all_Adjucent[i].GetComponentInChildren<FomoBuyer>();
                     fomoBuyer.BaseValue += 1;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasfoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
-                else if (HodlerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                else if (HodlerIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    Hodler hodler = GridManager.instance.list_ActivateInHirachy[i].GetComponent<Hodler>();
+                    Hodler hodler = adjucentData.all_Adjucent[i].GetComponentInChildren<Hodler>();
                     hodler.BaseValue += 1;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasfoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
                
 

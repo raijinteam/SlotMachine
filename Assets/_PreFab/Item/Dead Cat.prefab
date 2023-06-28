@@ -48,8 +48,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mySymbolIndex: 17
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: -166674492750018099}
   Basevalue: 0
+  shouldDestroy: 0
+  shouldSynergy: 0
 --- !u!65 &5433603803792263927
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -75,7 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a10b545a9f22984597627d14d2aa257, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symbolData: {fileID: 570898098375746747}
   persantageOfFurspawn: 10
+  shouldSpawnThisRound: 0
 --- !u!212 &-166674492750018099
 SpriteRenderer:
   m_ObjectHideFlags: 0

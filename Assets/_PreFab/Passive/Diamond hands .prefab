@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5515792032821575282}
   - component: {fileID: 312008424504238203}
   - component: {fileID: 2143568134735882762}
+  - component: {fileID: -2136465449007258384}
   m_Layer: 5
   m_Name: 'Diamond hands '
   m_TagString: Untagged
@@ -136,10 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65696a8487267734f8a7691f7a3e00e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symbolData: {fileID: -2136465449007258384}
   baseValue: 0
   list_Coin: []
-  cuurntIndex: 0
-  changeIndex: 0
   rectTransform: {fileID: 4838343446012842165}
   flt_StopAnimationTime: 0.1
   yOffset: 10
@@ -156,3 +156,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 5
+--- !u!114 &-2136465449007258384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9131544496691180865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a1eb94b0a36264f9a837c1046f8a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySymbolIndex: 0
+  spriteRenderer: {fileID: 0}
+  Basevalue: 0
+  shouldDestroy: 0
+  shouldSynergy: 0

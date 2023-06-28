@@ -28,55 +28,60 @@ public class Whale : MonoBehaviour
     }
 
     public void Instance_SetDestroyeObj() {
+        symbolData.shouldDestroy = false;
         extraValue = 0;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
-            
 
-                if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
-                    extraValue++;
-                    bitCoin.IsStopRunning = true;
-                    StartCoroutine(DestroyObject(bitCoin.gameObject));
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                }
-                else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+            if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    CardanoCoin cardanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
+                BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
+                extraValue++;
+                bitCoin.IsStopRunning = true;
+                symbolData.shouldDestroy = true;
+                StartCoroutine(DestroyObject(bitCoin.gameObject));
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+            }
+            else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    extraValue++;
-                    cardanoCoin.IsStopRunning = true;
-                    StartCoroutine(DestroyObject(cardanoCoin.gameObject));
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                CardanoCoin cardanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
 
-                }
-                else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                extraValue++;
+                cardanoCoin.IsStopRunning = true;
+                symbolData.shouldDestroy = true;
+                StartCoroutine(DestroyObject(cardanoCoin.gameObject));
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
 
-                    ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+            }
+            else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-                    extraValue++;
-                    eTHCoin.IsStopRunning = true;
-                    StartCoroutine(DestroyObject(eTHCoin.gameObject));
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
 
-                }
-                else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                extraValue++;
+                eTHCoin.IsStopRunning = true;
+                symbolData.shouldDestroy = true;
+                StartCoroutine(DestroyObject(eTHCoin.gameObject));
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
 
-                    StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
-                    extraValue++;
-                    stableCoin.IsStopRunning = true;
-                    StartCoroutine(DestroyObject(stableCoin.gameObject));
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                }
+            }
+            else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
-            
+                StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
+                extraValue++;
+                stableCoin.IsStopRunning = true;
+                symbolData.shouldDestroy = true;
+                StartCoroutine(DestroyObject(stableCoin.gameObject));
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+            }
+
+
         }
-        
+
     }
 
     private IEnumerator DestroyObject(GameObject child) {

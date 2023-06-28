@@ -25,6 +25,7 @@ public class BEAR : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasFoundSynergy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
@@ -38,6 +39,7 @@ public class BEAR : MonoBehaviour
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -46,6 +48,7 @@ public class BEAR : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -54,6 +57,7 @@ public class BEAR : MonoBehaviour
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -62,6 +66,7 @@ public class BEAR : MonoBehaviour
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
 
         

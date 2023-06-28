@@ -20,19 +20,33 @@ public class CloudMining : MonoBehaviour
     }
 
    
-    private void OnDisable() {
-
-       
+    private void OnDisable() {     
         GridManager.instance.SetCoinSetup -= Instance_SetCoinSetup;
     }
 
-    public void Instance_SetSpawnObj() {
+    public bool shouldSpawnThisRound = false;
+
+    public bool ShouldSpawnObj() {
         int index = Random.Range(0, 100);
         if (index < persantageOFSpawnBitCoin) {
-            GridManager.instance.OneExtraBitCoinAddCoin();
+
+            shouldSpawnThisRound = true;
         }
+        else {
+            shouldSpawnThisRound = false;
+        }
+
+        return shouldSpawnThisRound;
+    }
+
+    public void Instance_SetSpawnObj() {
+       
+       GridManager.instance.OneExtraBitCoinAddCoin();
+        
     }
     public void Instance_SetDestroyeObj() {
+
+        symbolData.shouldDestroy = false;
         int index = Random.Range(0, 100);
         if (index<persantageOfDestroyAllCoin) {
 
@@ -43,7 +57,9 @@ public class CloudMining : MonoBehaviour
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     BitCoin bitcoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
                     bitcoin.IsStopRunning = true;
+                    symbolData.shouldDestroy = true;
                     StartCoroutine(delayDestroy(bitcoin.gameObject));
+                    
 
                 }
                 else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -51,6 +67,7 @@ public class CloudMining : MonoBehaviour
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     CardanoCoin cardanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
                     cardanoCoin.IsStopRunning = true;
+                    symbolData.shouldDestroy = true;
                     StartCoroutine(delayDestroy(cardanoCoin.gameObject));
                 }
                 else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -58,6 +75,7 @@ public class CloudMining : MonoBehaviour
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     ETHCoin ethcoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
                     ethcoin.IsStopRunning = true;
+                    symbolData.shouldDestroy = true;
                     StartCoroutine(delayDestroy(ethcoin.gameObject));
                 }
                 else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -65,6 +83,7 @@ public class CloudMining : MonoBehaviour
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
                     stableCoin.IsStopRunning = true;
+                    symbolData.shouldDestroy = true;
                     StartCoroutine(delayDestroy(stableCoin.gameObject));
                 }
             }

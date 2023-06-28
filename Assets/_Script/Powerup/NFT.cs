@@ -27,6 +27,7 @@ public class NFT : MonoBehaviour {
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasfouneSynergy = false;
         int ExtraValue = 0;
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
@@ -34,11 +35,12 @@ public class NFT : MonoBehaviour {
 
             if (adjucentData.all_Adjucent[i].transform.childCount != 0) {
 
-                if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                if (fomoBuyerIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
                     ExtraValue++;
                     adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                    symbolData.shouldSynergy = true;
                     hasfouneSynergy = true;
                     CheckingEthGrid();
                 }

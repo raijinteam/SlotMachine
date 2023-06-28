@@ -25,6 +25,7 @@ public class CandlestickGreen : MonoBehaviour
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasFoundSynergy = false;
         AdjucentData adjucentData = transform.GetComponentInParent<AdjucentData>();
       
@@ -42,6 +43,7 @@ public class CandlestickGreen : MonoBehaviour
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (cardanoCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -50,6 +52,7 @@ public class CandlestickGreen : MonoBehaviour
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (ethCoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -58,6 +61,7 @@ public class CandlestickGreen : MonoBehaviour
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (stableCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
@@ -66,6 +70,7 @@ public class CandlestickGreen : MonoBehaviour
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasFoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
 
 

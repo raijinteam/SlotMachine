@@ -27,12 +27,15 @@ public class Auditor : MonoBehaviour
     }
 
     public   void Instance_SetDestroyeObj() {
+
+        symbolData.shouldDestroy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
             if (cloudMiningIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                 IncreasingPerminateValue(1);
                 StartCoroutine(DealyDestroy(GridManager.instance.list_ActivateInHirachy[i].gameObject));
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                symbolData.shouldDestroy = true;
 
             }
             else if (telegramScammerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -40,20 +43,24 @@ public class Auditor : MonoBehaviour
                 StartCoroutine(DealyDestroy(GridManager.instance.list_ActivateInHirachy[i].gameObject));
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                symbolData.shouldDestroy = true;
             }
             else if (crainNotRightIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                 IncreasingPerminateValue(1);
                 StartCoroutine(DealyDestroy(GridManager.instance.list_ActivateInHirachy[i].gameObject));
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                symbolData.shouldDestroy = true;
             }
             else if (fomoBuyerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                 IncreasingPerminateValue(1);
                 StartCoroutine(DealyDestroy(GridManager.instance.list_ActivateInHirachy[i].gameObject));
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                symbolData.shouldDestroy = true;
             }
         }
+
     }
 
     private IEnumerator DealyDestroy(GameObject gameObject) {

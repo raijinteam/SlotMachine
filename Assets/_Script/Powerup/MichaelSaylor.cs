@@ -24,18 +24,20 @@ public class MichaelSaylor : MonoBehaviour
     }
     public void Instance_SetDestroyeObj() {
 
+        symbolData.shouldDestroy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
-           
-            
-                if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-                    transform.GetComponentInParent<RawMotion>().VFXForMOtion();
-                    BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
-                    bitCoin.IncreasedPeminateBaseValue(1);
-                    bitCoin.IsStopRunning = true;
-                    StartCoroutine(Destroyed(bitCoin.gameObject));
-                }
-           
+
+
+            if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                transform.GetComponentInParent<RawMotion>().VFXForMOtion();
+                BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
+                bitCoin.IncreasedPeminateBaseValue(1);
+                symbolData.shouldDestroy = true;
+                bitCoin.IsStopRunning = true;
+                StartCoroutine(Destroyed(bitCoin.gameObject));
+            }
+
         }
     }
 

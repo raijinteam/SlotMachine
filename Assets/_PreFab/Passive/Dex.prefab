@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5919509169381806627}
   - component: {fileID: 3041089730882546448}
   - component: {fileID: 130357774924110241}
+  - component: {fileID: 4307816912311323305}
   m_Layer: 5
   m_Name: Dex
   m_TagString: Untagged
@@ -158,3 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 4
+--- !u!114 &4307816912311323305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843984954886219997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a1eb94b0a36264f9a837c1046f8a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySymbolIndex: 0
+  spriteRenderer: {fileID: 0}
+  Basevalue: 0
+  shouldDestroy: 0
+  shouldSynergy: 0

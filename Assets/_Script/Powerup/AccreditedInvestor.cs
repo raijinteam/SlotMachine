@@ -28,6 +28,7 @@ public class AccreditedInvestor : MonoBehaviour
         GridManager.instance.SetCoinSetup -= Instance_SetCoinSetup;
     }
 
+   
     public void Instance_SetDestroyeObj() {
         count = 0;
         list_Coin.Clear();
@@ -84,6 +85,13 @@ public class AccreditedInvestor : MonoBehaviour
                 StartCoroutine(delayDestroy(list_Coin[i].gameObject));
             }
             list_Coin[list_Coin.Count - 1].GetComponent<SymbolData>().enabled = true;
+        }
+
+        if(list_Coin.Count >= 2) {
+            symbolData.shouldDestroy = true;
+        }
+        else {
+            symbolData.shouldDestroy = false;
         }
     }
 

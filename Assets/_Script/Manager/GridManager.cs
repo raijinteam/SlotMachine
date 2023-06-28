@@ -24,7 +24,11 @@ public class GridManager : MonoBehaviour
     [Header("----Action---")]
     public List<Action> sysnergyFinction = new List<Action>();
     public List<Action> SetSpawnObjFunction = new List<Action>();
+    public List<bool> ShouldObjSpawn = new List<bool>();
+   
     public List<Action> SetDestroyeObjFunction = new List<Action>();
+    public List<SymbolData> destroySymbolData = new List<SymbolData>();
+    public List<SymbolData> SynergySymbolData = new List<SymbolData>();
     [SerializeField] List<SymbolData> list_Symboldat = new List<SymbolData>();
     [SerializeField]private List<Transform> list_AllPostion;
     [SerializeField] private GameObject transform_Store;
@@ -217,8 +221,11 @@ public class GridManager : MonoBehaviour
 
     private IEnumerator DelayOfPowerupProcess() {
 
+        Debug.Log("1");
         yield return new WaitForSeconds(flt_DelayStartEvent);
         float time = 0;
+        Debug.Log("2");
+
         if (SetPassive != null) {
             SetPassive.Invoke(this, EventArgs.Empty);
             time = flt_DealayOfSpawnObj;
@@ -228,9 +235,9 @@ public class GridManager : MonoBehaviour
         }
        
         StartCoroutine(DealayOfSpawnObjEvent(time));
-      
-        
-       
+
+        Debug.Log("3");
+
     }
 
     private IEnumerator DealayOfSpawnObjEvent(float delayOfSpawnObj) {
@@ -238,18 +245,22 @@ public class GridManager : MonoBehaviour
 
         ShortingData(list_ActivateInHirachy);
         SetSpawnObjFunction.Clear();
+        ShouldObjSpawn.Clear();
         SetSpawnObjFunction = spawnObjSetup.SetListOfAction(SetSpawnObjFunction, list_Symboldat);
       
 
         float time = 0;
         if (SetSpawnObjFunction.Count != 0) {
 
-            time = flt_DelayOfSynergyEvent;
+          
             for (int i = 0; i < SetSpawnObjFunction.Count; i++) {
-                SetSpawnObjFunction[i]();
-              
+
+                if (ShouldObjSpawn[i]) {
+                    time = flt_DelayOfSynergyEvent;
+                    SetSpawnObjFunction[i]();
                     yield return new WaitForSeconds(time);
-               
+                }
+                
             }
 
         }
@@ -257,21 +268,28 @@ public class GridManager : MonoBehaviour
             time = 0;
         }
         StartCoroutine(DelayOfDestroyEvent(time));
+        Debug.Log("4 : " +time);
     }
 
-    private IEnumerator DelayOfDestroyEvent(float time) {
-        yield return new WaitForSeconds(time);
+    private IEnumerator DelayOfDestroyEvent(float delayOfDestroyObj) {
+        yield return new WaitForSeconds(delayOfDestroyObj);
         ShortingData(list_ActivateInHirachy);
         SetDestroyeObjFunction.Clear();
+        destroySymbolData.Clear();
         SetDestroyeObjFunction = setDestroySetUp.SetListOfAction(SetDestroyeObjFunction, list_Symboldat);
        
-        float Time;
+        float Time = 0;
         if (SetDestroyeObjFunction.Count != 0) {
 
-            Time = flt_DelayOfSynergyEvent;
+           
             for (int i = 0; i < SetDestroyeObjFunction.Count; i++) {
                 SetDestroyeObjFunction[i]();
-                 yield return new WaitForSeconds(time);
+
+                if (destroySymbolData[i].shouldDestroy) {
+                    Time = flt_DelayOfSynergyEvent;
+                    yield return new WaitForSeconds(Time);
+                }
+                 
                 
             }
 
@@ -280,14 +298,18 @@ public class GridManager : MonoBehaviour
             Time = 0;
         }
         StartCoroutine(DelayOfSynerGy(Time));
-       
+        Debug.Log("5 : "+ Time);
+
     }
 
     private IEnumerator DelayOfSynerGy(float  time ) {
         yield return new WaitForSeconds(time);
+
+        Debug.Log("6");
         float Time;
         ShortingData(list_ActivateInHirachy);
         sysnergyFinction.Clear();
+        SynergySymbolData.Clear();
         sysnergyFinction = synergySetup.SetListOfAction(sysnergyFinction, list_Symboldat);
 
 
@@ -296,18 +318,11 @@ public class GridManager : MonoBehaviour
             Time = flt_DelayOfSynergyEvent;
             for (int i = 0; i < sysnergyFinction.Count; i++) {
 
-
-                if (sysnergyFinction[i] != null) {
-                    sysnergyFinction[i].Invoke();
-                    yield return new WaitForSeconds(0.5f);
+                sysnergyFinction[i]();
+                if (SynergySymbolData[i].shouldSynergy) {
+                    Time = flt_DelayOfSynergyEvent;
+                    yield return new WaitForSeconds(Time);
                 }
-                   
-                
-                
-               
-               
-              
-                      
             }
             
         }

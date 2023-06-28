@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 3274791950986528950}
   - component: {fileID: 6090278446354765226}
   - component: {fileID: -731986006291260581}
+  - component: {fileID: 7557501267296795470}
   m_Layer: 5
   m_Name: EthChain
   m_TagString: Untagged
@@ -136,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2c60db0c0a80c146a7f2f35279ba100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  symbolData: {fileID: 7557501267296795470}
   rectTransform: {fileID: 6163457412212370434}
   flt_StopAnimationTime: 0.1
   yOffset: 10
@@ -152,3 +154,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myIndex: 6
+--- !u!114 &7557501267296795470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941809130445779977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45a1eb94b0a36264f9a837c1046f8a5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mySymbolIndex: 0
+  spriteRenderer: {fileID: 0}
+  Basevalue: 0
+  shouldDestroy: 0
+  shouldSynergy: 0

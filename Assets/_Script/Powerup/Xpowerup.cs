@@ -20,6 +20,7 @@ public class Xpowerup : MonoBehaviour
     }
 
     public void Instance_SetDestroyeObj() {
+        symbolData.shouldDestroy = false;
         baseValue = 0;
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
@@ -31,7 +32,7 @@ public class Xpowerup : MonoBehaviour
 
         }
         if (baseValue == 0) {
-
+            symbolData.shouldDestroy = true;
             StartCoroutine(Destroy());
           
         }

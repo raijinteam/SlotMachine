@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class ProofofStake : MonoBehaviour
 {
+     [SerializeField]private SymbolData symbolData;
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private float flt_StopAnimationTime;
     [SerializeField] private float yOffset;
@@ -20,9 +21,7 @@ public class ProofofStake : MonoBehaviour
 
   
     public Vector2 canvasPosition;
-
-  
-
+   
 
     private void OnEnable() {
         GridManager.instance.SetCoinSetup += Instance_SetCoinSetup;
@@ -42,7 +41,7 @@ public class ProofofStake : MonoBehaviour
 
 
     public void Instance_SetSynergy() {
-
+        symbolData.shouldSynergy = false;
         bool hasFoundSynergy = false;
         baseValue = 0;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
@@ -53,9 +52,10 @@ public class ProofofStake : MonoBehaviour
                 baseValue += 1;
                 StopAnimation();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
-
+                symbolData.shouldSynergy = true;
+                hasFoundSynergy = true;
             }
-            hasFoundSynergy = true;
+            
 
         }
         if (hasFoundSynergy) {

@@ -29,11 +29,13 @@ public class Bagholder : MonoBehaviour {
     }
 
     public void Instance_SetSynergy() {
+        symbolData.shouldSynergy = false;
 
-      
 
         if (count>3) {
             BaseValue = 1;
+            symbolData.shouldSynergy = true;
+            AudioManager.instance.Play_SynergySfx();
         }
     }
 }

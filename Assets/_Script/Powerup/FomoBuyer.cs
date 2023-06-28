@@ -28,8 +28,8 @@ public class FomoBuyer : MonoBehaviour
     public void Instance_SetSynergy() {
 
 
-
-       bool hasFoundSynergy = false;
+        symbolData.shouldSynergy = false;
+        bool hasFoundSynergy = false;
 
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
         if (adjucentData == null) {
@@ -41,37 +41,41 @@ public class FomoBuyer : MonoBehaviour
 
                
 
-                if (bitcoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                if (bitcoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    BitCoin bitCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<BitCoin>();
+                    BitCoin bitCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<BitCoin>();
                     bitCoin.BaseValue *= 2;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
-                else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                else if (cardanoCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    CardanoCoin caradnoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
+                    CardanoCoin caradnoCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<CardanoCoin>();
                     caradnoCoin.BaseValue *= 2;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
-                else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                else if (ethCoinSymboleIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    ETHCoin eTHCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<ETHCoin>();
+                    ETHCoin eTHCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<ETHCoin>();
                     eTHCoin.BaseValue *= 2;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
-                else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
+                else if (stableCoinIndex == adjucentData.all_Adjucent[i].GetComponentInChildren<SymbolData>().mySymbolIndex) {
 
-                    StableCoin stableCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<StableCoin>();
+                    StableCoin stableCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<StableCoin>();
                     stableCoin.BaseValue *= 2;
-                    GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
+                    adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
 
             }

@@ -26,7 +26,7 @@ public class Escrow : MonoBehaviour {
     }
 
     public void Instance_SetDestroyeObj() {
-
+        symbolData.shouldDestroy = false;
         AdjucentData adjucentData = transform.GetComponentInParent<AdjucentData>();
         for (int i = 0; i < adjucentData.all_Adjucent.Length; i++) {
 
@@ -40,6 +40,7 @@ public class Escrow : MonoBehaviour {
                 BitCoin bitCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<BitCoin>();
                 IncreasedPeminateBaseValue(1);
                 StartCoroutine(delayDestroy(bitCoin.gameObject));
+                symbolData.shouldDestroy = true;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
             }
@@ -48,6 +49,7 @@ public class Escrow : MonoBehaviour {
                 CardanoCoin cardanoCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<CardanoCoin>();
                 IncreasedPeminateBaseValue(1);
                 StartCoroutine(delayDestroy(cardanoCoin.gameObject));
+                symbolData.shouldDestroy = true;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
             }
@@ -56,6 +58,7 @@ public class Escrow : MonoBehaviour {
                 ETHCoin eTHCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<ETHCoin>();
                 IncreasedPeminateBaseValue(1);
                 StartCoroutine(delayDestroy(eTHCoin.gameObject));
+                symbolData.shouldDestroy = true;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
             }
@@ -64,6 +67,7 @@ public class Escrow : MonoBehaviour {
                 StableCoin stableCoin = adjucentData.all_Adjucent[i].GetComponentInChildren<StableCoin>();
                 IncreasedPeminateBaseValue(1);
                 StartCoroutine(delayDestroy(stableCoin.gameObject));
+                symbolData.shouldDestroy = true;
                 adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
             }

@@ -2,20 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 public class EthChain : MonoBehaviour
 {
+    [SerializeField] private SymbolData symbolData;
     [SerializeField] private RectTransform rectTransform;
     [SerializeField] private float flt_StopAnimationTime;
     [SerializeField] private float yOffset;
 
     private int cardanoCoinIndex = 2;
     private int ethCoinSymboleIndex = 3;
+   
 
 
     public void Instance_SetSynergy() {
 
-        bool hasfoundSynergy = false;
+        symbolData.shouldSynergy = false;
+       bool hasfoundSynergy = false;
 
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -26,6 +30,8 @@ public class EthChain : MonoBehaviour
                 StopAnimation();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasfoundSynergy = true;
+                symbolData.shouldSynergy = true;
+
 
             }
             else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
@@ -34,6 +40,7 @@ public class EthChain : MonoBehaviour
                 StopAnimation();
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasfoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
 
         }
@@ -42,7 +49,7 @@ public class EthChain : MonoBehaviour
         }
     }
 
-
+    
 
     private void StopAnimation() {
 

@@ -8,5 +8,6 @@ public class SymbolData : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public int Basevalue;   // this is base value of all product;
-
+    public bool shouldDestroy = false;
+    public bool shouldSynergy = false;
 }

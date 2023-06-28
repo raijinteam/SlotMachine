@@ -19,12 +19,28 @@ public class ASIC : MonoBehaviour
         GridManager.instance.SetCoinSetup -= Instance_SetCoinSetup;
     }
 
-    public void Instance_SetSpawnObj() {
-      
+    public bool shouldSpawnThisRound = false;
+
+    public bool ShouldSpawnObj() {
         int index = Random.Range(0, 100);
         if (index < persantageOfSpawnBitcoin) {
-            GridManager.instance.OneExtraBitCoinAddCoin();
+
+            shouldSpawnThisRound = true;
         }
+        else {
+            shouldSpawnThisRound = false;
+        }
+
+        return shouldSpawnThisRound;
+    }
+
+    public void Instance_SetSpawnObj() {
+
+        GridManager.instance.OneExtraBitCoinAddCoin();
+        //int index = Random.Range(0, 100);
+        //if (index < persantageOfSpawnBitcoin) {
+        //    GridManager.instance.OneExtraBitCoinAddCoin();
+        //}
     }
     private void Instance_SetCoinSetup(object sender, System.EventArgs e) {
         if (baseValue < 0) {

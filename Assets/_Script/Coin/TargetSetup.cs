@@ -23,8 +23,7 @@ public class TargetSetup : MonoBehaviour
     // reset Coin
     //</Summary>
 
-    private void Start() {
-
+    private void OnEnable() {
         Camera camera = Camera.main;  // Use the camera that can see the canvas
 
         Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
@@ -38,18 +37,7 @@ public class TargetSetup : MonoBehaviour
         txt_Mesh.gameObject.SetActive(false);
     }
 
-    private void Update() {
-        if (isanimationStart) {
-            return;
-        }
 
-        Camera camera = Camera.main;  // Use the camera that can see the canvas
-
-        Vector2 screenPosition = RectTransformUtility.WorldToScreenPoint(camera, rectTransform.position);
-        Vector3 worldPosition = camera.ScreenToWorldPoint(screenPosition);
-
-        transform.position = new Vector3(worldPosition.x, worldPosition.y, 0);
-    }
     public void TargetUpAnimation(float time) {
 
         isanimationStart = true;

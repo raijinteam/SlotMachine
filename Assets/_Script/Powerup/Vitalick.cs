@@ -30,20 +30,32 @@ public class Vitalick : MonoBehaviour
       
     }
 
+    public bool shouldSpawnThisRound = false;
+
+    public bool ShouldSpawnObj() {
+        int index = Random.Range(0, 100);
+        if (index < persenatgeofSpawnETh) {
+
+            shouldSpawnThisRound = true;
+        }
+        else {
+            shouldSpawnThisRound = false;
+        }
+
+        return shouldSpawnThisRound;
+    }
+
     public void Instance_SetSpawnObj() {
 
-        int index = Random.Range(0, 100);
-        if (index< persenatgeofSpawnETh) {
-            GridManager.instance.OneExtraETHAddCoin();
-        }
-    
-                 
-
+      
+       GridManager.instance.OneExtraETHAddCoin();
+        
     }
 
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasFoundSynergy = false;
 
         AdjucentData adjucentData = GetComponentInParent<AdjucentData>();
@@ -62,6 +74,7 @@ public class Vitalick : MonoBehaviour
                     adjucentData.all_Adjucent[i].GetComponent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
 
             }

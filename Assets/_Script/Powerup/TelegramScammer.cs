@@ -28,11 +28,13 @@ public class TelegramScammer : MonoBehaviour
 
     public void Instance_SetDestroyeObj() {
 
+        symbolData.shouldDestroy = false;
         // Undefine;
     }
 
     public void Instance_SetSynergy() {
 
+        symbolData.shouldSynergy = false;
         bool hasfoundSynergy = false;
         for (int i = 0; i < GridManager.instance.list_ActivateInHirachy.Count; i++) {
 
@@ -45,6 +47,7 @@ public class TelegramScammer : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasfoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (HodlerIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -54,6 +57,7 @@ public class TelegramScammer : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasfoundSynergy = true;
+                symbolData.shouldSynergy = true;
             }
             else if (vitalickSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -63,6 +67,7 @@ public class TelegramScammer : MonoBehaviour
                 GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                 transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                 hasfoundSynergy = true;
+                symbolData.shouldSynergy = true;
 
             }
 

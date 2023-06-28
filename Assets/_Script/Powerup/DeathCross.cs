@@ -25,7 +25,8 @@ public class DeathCross : MonoBehaviour {
 
     public void Instance_SetSynergy() {
 
-      bool  hasFoundSynergy = false;
+        symbolData.shouldSynergy = false;
+        bool  hasFoundSynergy = false;
         count++;
         if (count> CoinZeroCount) {
             count = 0;
@@ -40,6 +41,7 @@ public class DeathCross : MonoBehaviour {
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
                 else if (cardanoCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
                     CardanoCoin cardanoCoin = GridManager.instance.list_ActivateInHirachy[i].GetComponent<CardanoCoin>();
@@ -47,6 +49,7 @@ public class DeathCross : MonoBehaviour {
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
                 else if (ethCoinSymboleIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -55,6 +58,7 @@ public class DeathCross : MonoBehaviour {
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
                 else if (stableCoinIndex == GridManager.instance.list_ActivateInHirachy[i].GetComponent<SymbolData>().mySymbolIndex) {
 
@@ -63,6 +67,7 @@ public class DeathCross : MonoBehaviour {
                     GridManager.instance.list_ActivateInHirachy[i].GetComponentInParent<RawMotion>().VFXForMOtion();
                     transform.GetComponentInParent<RawMotion>().VFXForMOtion();
                     hasFoundSynergy = true;
+                    symbolData.shouldSynergy = true;
                 }
 
 

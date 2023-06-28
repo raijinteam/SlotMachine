@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   persantageOfSpawnBitcoin: 15
   symbolData: {fileID: -8788718978683250503}
+  shouldSpawnThisRound: 0
 --- !u!114 &-8788718978683250503
 MonoBehaviour:
   m_ObjectHideFlags: 0
